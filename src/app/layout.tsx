@@ -1,14 +1,14 @@
-import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
-import type { Metadata } from "next";
-import { ReactNode } from "react";
+import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry'
+import type { Metadata } from 'next'
+import { ReactNode } from 'react'
 
 export const metadata: Metadata = {
   title: {
-    default: "Books",
-    template: "%s | Books",
+    default: 'Books',
+    template: '%s | Books',
   },
-  description: "Book Store",
-};
+  description: 'Book Store',
+}
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -17,5 +17,5 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ThemeRegistry>{children}</ThemeRegistry>
       </body>
     </html>
-  );
+  )
 }
