@@ -36,7 +36,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
           border: `2px solid ${theme.palette.secondary.light}`,
           ['&:hover']: {
             background: 'transparent',
-            borderColor: theme.palette.secondary.main,
+            border: `2px solid ${theme.palette.secondary.main}`,
           },
         },
         sizeMedium: {
