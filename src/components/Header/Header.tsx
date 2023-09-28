@@ -5,7 +5,6 @@ import {
   AppBar,
   Box,
   Button,
-  Divider,
   IconButton,
   Link,
   Stack,
@@ -30,7 +29,7 @@ export function Header() {
         <Box sx={wrapperSx(trigger)}>
           <Stack alignItems="center" direction="row">
             <Box sx={{ flexGrow: 1 }}>
-              <Link href="/" variant="h6" component={NextLink}>
+              <Link component={NextLink} href="/" variant="h6">
                 <Box component="span" mr={2}>
                   <FontAwesomeIcon icon={faBook} />
                 </Box>

@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <ThemeRegistry>
           <Header />
-          <Container>{children}</Container>
+          <Container sx={{ py: { xs: 3, sm: 4, lg: 6 } }}>{children}</Container>
         </ThemeRegistry>
       </body>
     </html>

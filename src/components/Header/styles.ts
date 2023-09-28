@@ -4,7 +4,6 @@ const headerHeight = { xs: 64, sm: 80, lg: 96 }
 
 export const containerSx: SxProps<Theme> = () => ({
   height: headerHeight,
-  mb: { xs: 3, sm: 4, lg: 6 },
 })
 
 export const wrapperSx =
