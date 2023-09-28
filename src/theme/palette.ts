@@ -1,36 +1,29 @@
-import { ThemeOptions, darken, lighten } from '@mui/material'
-
-const colorPalette = {
-  primary: '#0F2C59',
-  secondary: '#DAC0A3',
-  text: {
-    primary: '#030911',
-    secondary: '#7D8CA1',
-  },
-  background: {
-    paper: '#F8F0E5',
-    default: '#FFFFFF',
-  },
-}
+import { ThemeOptions } from '@mui/material'
 
 export default function getPalette(): ThemeOptions['palette'] {
   return {
     mode: 'light',
     primary: {
-      light: lighten(colorPalette.primary, 0.5),
-      main: colorPalette.primary,
-      dark: darken(colorPalette.primary, 0.2),
+      light: '#8795ac',
+      main: '#0F2C59',
+      dark: '#0c2347',
     },
     secondary: {
-      light: lighten(colorPalette.secondary, 0.5),
-      main: colorPalette.secondary,
-      dark: darken(colorPalette.secondary, 0.2),
+      light: '#ecdfd1',
+      main: '#DAC0A3',
+      dark: '#ae9982',
     },
-    text: colorPalette.text,
-    divider: lighten(colorPalette.secondary, 0.5),
-    background: colorPalette.background,
+    text: {
+      primary: '#030911',
+      secondary: '#7D8CA1',
+    },
+    divider: '#ecdfd1',
+    background: {
+      paper: '#F8F0E5',
+      default: '#FFFFFF',
+    },
     action: {
-      active: colorPalette.primary,
+      active: '#0F2C59',
     },
   }
 }
