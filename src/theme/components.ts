@@ -54,9 +54,21 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
     MuiCardContent: {
       styleOverrides: {
         root: {
-          padding: theme.spacing(3),
+          padding: theme.spacing(2),
+          ['&:last-child']: {
+            paddingBottom: theme.spacing(2),
+          },
+          [theme.breakpoints.up('sm')]: {
+            padding: theme.spacing(3),
+            ['&:last-child']: {
+              paddingBottom: theme.spacing(3),
+            },
+          },
           [theme.breakpoints.up('lg')]: {
             padding: theme.spacing(4),
+            ['&:last-child']: {
+              paddingBottom: theme.spacing(4),
+            },
           },
         },
       },
