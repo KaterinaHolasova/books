@@ -56,13 +56,6 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
         maxWidth: 'xl',
       },
     },
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          borderBottomWidth: 2,
-        },
-      },
-    },
     MuiGrid: {
       defaultProps: {
         spacing: { xs: 3, lg: 4 },
