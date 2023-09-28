@@ -37,11 +37,16 @@ export function Header() {
               </Link>
             </Box>
             {isTabletOrDesktop ? (
-              <Button startIcon={<FontAwesomeIcon icon={faLock} />} variant="outlined">
-                Switch to admin view
+              <Button
+                component={NextLink}
+                href="/admin/books"
+                startIcon={<FontAwesomeIcon icon={faLock} />}
+                variant="outlined"
+              >
+                Admin mode
               </Button>
             ) : (
-              <IconButton>
+              <IconButton component={NextLink} href="/admin/books">
                 <FontAwesomeIcon icon={faLock} />
               </IconButton>
             )}
