@@ -19,12 +19,12 @@ export default function getPalette(): ThemeOptions['palette'] {
     primary: {
       light: lighten(colorPalette.primary, 0.5),
       main: colorPalette.primary,
-      dark: darken(colorPalette.primary, 0.5),
+      dark: darken(colorPalette.primary, 0.2),
     },
     secondary: {
       light: lighten(colorPalette.secondary, 0.5),
       main: colorPalette.secondary,
-      dark: darken(colorPalette.secondary, 0.5),
+      dark: darken(colorPalette.secondary, 0.2),
     },
     text: colorPalette.text,
     divider: lighten(colorPalette.secondary, 0.5),

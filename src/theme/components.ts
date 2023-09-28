@@ -51,9 +51,29 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
         },
       },
     },
+    MuiCardContent: {
+      styleOverrides: {
+        root: {
+          padding: theme.spacing(3),
+          [theme.breakpoints.up('lg')]: {
+            padding: theme.spacing(4),
+          },
+        },
+      },
+    },
     MuiContainer: {
       defaultProps: {
         maxWidth: 'xl',
+      },
+    },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          color: theme.palette.primary.main,
+          fontSize: 14,
+          fontWeight: 700,
+          marginBottom: theme.spacing(1),
+        },
       },
     },
     MuiGrid: {
@@ -84,6 +104,20 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
           transition: theme.transitions.create('color'),
           ['&:hover']: {
             color: theme.palette.primary.dark,
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          border: `2px solid ${theme.palette.secondary.light}`,
+          transition: theme.transitions.create('border-color'),
+          ['.MuiInputBase-root.MuiOutlinedInput-root:hover &']: {
+            borderColor: theme.palette.secondary.main,
+          },
+          ['.MuiInputBase-root.MuiOutlinedInput-root.Mui-focused &']: {
+            borderColor: theme.palette.primary.main,
           },
         },
       },

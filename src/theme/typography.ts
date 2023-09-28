@@ -10,8 +10,12 @@ const nunitoSans = Nunito_Sans({
 export default function getTypography(theme: Theme): ThemeOptions['typography'] {
   return {
     fontFamily: nunitoSans.style.fontFamily,
-    h2: {
+    h1: {
       fontSize: 32,
+      fontWeight: 800,
+    },
+    h2: {
+      fontSize: 24,
       fontWeight: 800,
     },
     h4: {
