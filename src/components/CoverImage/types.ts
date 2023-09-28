@@ -1,6 +1,6 @@
 import { CoverImage } from '@/types/book'
 
 export type CoverImageProps = {
-  alt: string
+  alt?: string
   image: CoverImage
 }

@@ -14,7 +14,7 @@ export function CoverImage(props: CoverImageProps) {
     >
       <CardContent sx={{ height: '100%' }}>
         <Box sx={imageWrapperSx}>
-          <Image alt={alt} fill objectFit="cover" src={`/cover-images/${image}`} />
+          <Image alt={alt ?? 'Cover image'} fill objectFit="cover" src={`/cover-images/${image}`} />
         </Box>
       </CardContent>
     </Card>
