@@ -14,8 +14,9 @@ import { useRouter } from 'next/navigation'
 
 export default function Page({ params }: { params: { id: string } }) {
   const { data, isLoading } = useBookDetail(params.id)
-  const { deleteBook } = useBookDelete(params.id)
   const router = useRouter()
+
+  const { deleteBook } = useBookDelete(params.id, () => router.back())
 
   if (isLoading) return <Loader />
 

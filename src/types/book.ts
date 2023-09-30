@@ -23,3 +23,5 @@ export type Book = {
   description?: string
   title: string
 }
+
+export type BookInput = Omit<Book, '_id'>

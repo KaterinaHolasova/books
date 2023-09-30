@@ -4,11 +4,13 @@ import { Header } from '@/components/Header'
 import { Loader } from '@/components/Loader'
 import { useBookDetail } from '@/hooks/useBookDetail'
 import { useBookUpdate } from '@/hooks/useBookUpdate'
+import { useRouter } from 'next/navigation'
 
 export default function Page({ params }: { params: { id: string } }) {
   const { data, isLoading } = useBookDetail(params.id)
+  const router = useRouter()
 
-  const { updateBook } = useBookUpdate(params.id)
+  const { updateBook } = useBookUpdate(params.id, () => router.back())
 
   return (
     <>

@@ -1,18 +1,19 @@
 import { API_URL } from '@/constants/apiUrl'
-import { Book } from '@/types/book'
+import { BookInput } from '@/types/book'
 import { enqueueSnackbar } from 'notistack'
 import useSWRMutation from 'swr/mutation'
 
-export function useBookCreate() {
-  const { trigger } = useSWRMutation(API_URL.bookList, (url, { arg }: { arg: Omit<Book, '_id'> }) =>
+export function useBookCreate(callback?: () => void) {
+  const { trigger } = useSWRMutation(API_URL.bookList, (url, { arg }: { arg: BookInput }) =>
     fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
       body: JSON.stringify(arg),
     }).then(() => {
       enqueueSnackbar(`Book “${arg.title}” created`, { variant: 'success' })
+      callback?.()
     })
   )
 
-  return { createBook: trigger }
+  return { createBook: (data: BookInput) => trigger(data) }
 }
