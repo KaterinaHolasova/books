@@ -58,9 +58,7 @@ export default function Page({ params }: { params: { id: string } }) {
           <Typography component="dt" gutterBottom variant="h4">
             Description
           </Typography>
-          <Typography component="dd" variant="body2">
-            {data.description}
-          </Typography>
+          <Typography component="dd">{data.description}</Typography>
         </Box>
       </dl>
     </BookLayout>

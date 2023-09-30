@@ -233,6 +233,9 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
       },
     },
     MuiTypography: {
+      defaultProps: {
+        variant: 'body2',
+      },
       styleOverrides: {
         root: {
           ['& small']: {

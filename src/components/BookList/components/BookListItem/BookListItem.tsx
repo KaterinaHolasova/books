@@ -32,9 +32,7 @@ export function BookListItem(props: BookListItemProps) {
             </Typography>
             <ActionMenu items={actionMenuItems} />
           </Stack>
-          <Typography component="span" variant="body2">
-            {author}
-          </Typography>
+          <Typography component="span">{author}</Typography>
         </Box>
       </Stack>
     </ButtonBase>
