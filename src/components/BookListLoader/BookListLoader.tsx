@@ -1,5 +1,5 @@
 import { Grid, Skeleton, Stack } from '@mui/material'
-import CoverImageLoader from '../CoverImageLoader/CoverImageLoader'
+import { CoverImageLoader } from '../CoverImageLoader/CoverImageLoader'
 
 export function BookListLoader() {
   return (

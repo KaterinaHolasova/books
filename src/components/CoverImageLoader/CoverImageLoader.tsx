@@ -1,6 +1,6 @@
 import { Skeleton } from '@mui/material'
 
-export default function CoverImageLoader() {
+export function CoverImageLoader() {
   return (
     <Skeleton
       height="100%"

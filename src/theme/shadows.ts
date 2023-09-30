@@ -1,7 +1,7 @@
 import { Theme, ThemeOptions } from '@mui/material'
-import { alpha, darken } from '@mui/material/styles'
+import { alpha } from '@mui/material/styles'
 
-export default function getShadows(theme: Theme): ThemeOptions['shadows'] {
+export function getShadows(theme: Theme): ThemeOptions['shadows'] {
   return [
     'none',
     `0 0 0 2px ${theme.palette.divider}`,

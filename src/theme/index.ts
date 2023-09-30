@@ -1,9 +1,9 @@
 import { createTheme } from '@mui/material/styles'
-import getComponents from './components'
-import getTypography from './typography'
-import getShape from './shape'
-import getPalette from './palette'
-import getShadows from './shadows'
+import { getComponents } from './components'
+import { getTypography } from './typography'
+import { getShape } from './shape'
+import { getPalette } from './palette'
+import { getShadows } from './shadows'
 
 export let theme = createTheme()
 

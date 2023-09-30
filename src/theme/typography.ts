@@ -1,6 +1,6 @@
 import { Theme, ThemeOptions } from '@mui/material'
 
-export default function getTypography(theme: Theme): ThemeOptions['typography'] {
+export function getTypography(theme: Theme): ThemeOptions['typography'] {
   return {
     h1: {
       fontSize: 32,

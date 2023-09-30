@@ -1,7 +1,7 @@
 'use client'
 import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
-import NextAppDirEmotionCacheProvider from './EmotionCache'
+import { NextAppDirEmotionCacheProvider } from './EmotionCache'
 import { ReactNode } from 'react'
 import { theme } from '@/theme'
 

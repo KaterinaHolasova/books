@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material'
 import { BookLayoutProps } from './types'
 import { CoverImage } from '../CoverImage'
-import CoverImageLoader from '../CoverImageLoader/CoverImageLoader'
+import { CoverImageLoader } from '../CoverImageLoader/CoverImageLoader'
 
 export function BookLayout(props: BookLayoutProps) {
   const { children, coverImage, coverImagePlaceholder } = props

@@ -1,6 +1,6 @@
 import { Theme, ThemeOptions } from '@mui/material'
 
-export default function getComponents(theme: Theme): ThemeOptions['components'] {
+export function getComponents(theme: Theme): ThemeOptions['components'] {
   return {
     MuiAlert: {
       styleOverrides: {

@@ -14,7 +14,7 @@ const colorPalette = {
   },
 }
 
-export default function getPalette(): ThemeOptions['palette'] {
+export function getPalette(): ThemeOptions['palette'] {
   return {
     mode: 'light',
     primary: {
