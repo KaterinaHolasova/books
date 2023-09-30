@@ -6,12 +6,13 @@ import Link from 'next/link'
 import { ActionMenu } from '@/components/common/ActionMenu'
 import { useActionMenuItems } from './hooks/useActionMenuItems'
 import { LINKS } from '@/constants/links'
-import { useIsAdmin } from '@/hooks/useIsAdmin'
+import { useContext } from 'react'
+import { AdminContext } from '@/contexts/AdminContext/AdminContext'
 
 export function BookListItem(props: BookListItemProps) {
   const { _id, author, category, coverImage, title } = props
   const actionMenuItems = useActionMenuItems(_id)
-  const { isAdmin } = useIsAdmin()
+  const { isAdmin } = useContext(AdminContext)
 
   const isTabletOrDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'))
 
@@ -19,7 +20,7 @@ export function BookListItem(props: BookListItemProps) {
     <ButtonBase
       component={Link}
       disableRipple
-      href={isAdmin ? LINKS.admin.bookDetail(_id, category) : LINKS.bookDetail(_id, category)}
+      href={LINKS.bookDetail(_id, category)}
       sx={wrapperSx}
     >
       <Box component="span" mb={1}>

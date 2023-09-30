@@ -1,5 +1,5 @@
 'use client'
-import { faBook, faLock } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faLock, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   AppBar,
@@ -15,18 +15,17 @@ import {
 import NextLink from 'next/link'
 import { containerSx, wrapperSx } from './styles'
 import { LINKS } from '@/constants/links'
-import { useIsAdmin } from '@/hooks/useIsAdmin'
+import { useContext } from 'react'
+import { AdminContext } from '@/contexts/AdminContext/AdminContext'
 
 export function Navigation() {
-  const { isAdmin } = useIsAdmin()
+  const { isAdmin, toggleIsAdmin } = useContext(AdminContext)
   const isTabletOrDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'))
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
   })
-
-  const switchModeLink = isAdmin ? LINKS.books : LINKS.admin.books
 
   return (
     <Box sx={containerSx}>
@@ -43,15 +42,14 @@ export function Navigation() {
             </Box>
             {isTabletOrDesktop ? (
               <Button
-                component={NextLink}
-                href={switchModeLink}
-                startIcon={<FontAwesomeIcon icon={faLock} />}
+                onClick={toggleIsAdmin}
+                startIcon={<FontAwesomeIcon icon={isAdmin ? faUser : faLock} />}
                 variant="outlined"
               >
-                {isAdmin ? 'User mode' : 'Admin mode'}
+                {isAdmin ? 'Switch to user mode' : 'Switch to admin mode'}
               </Button>
             ) : (
-              <IconButton component={NextLink} href={switchModeLink}>
+              <IconButton onClick={toggleIsAdmin}>
                 <FontAwesomeIcon icon={faLock} />
               </IconButton>
             )}

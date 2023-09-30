@@ -12,12 +12,13 @@ import { Box, Chip, IconButton, Typography } from '@mui/material'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { BookDetailPageProps } from './types'
-import { useIsAdmin } from '@/hooks/useIsAdmin'
+import { useContext } from 'react'
+import { AdminContext } from '@/contexts/AdminContext/AdminContext'
 
 export function BookDetailPage(props: BookDetailPageProps) {
   const { id } = props
   const { data, isLoading } = useBookDetail(id)
-  const { isAdmin } = useIsAdmin()
+  const { isAdmin } = useContext(AdminContext)
   const router = useRouter()
 
   const { deleteBook } = useBookDelete(id, () => router.back())
@@ -38,7 +39,7 @@ export function BookDetailPage(props: BookDetailPageProps) {
         >
           {isAdmin && (
             <>
-              <IconButton component={Link} href={LINKS.admin.editBook(id)}>
+              <IconButton component={Link} href={LINKS.editBook(id)}>
                 <FontAwesomeIcon icon={faPen} />
               </IconButton>
               <IconButton onClick={() => deleteBook().then(() => router.back())}>
@@ -55,11 +56,7 @@ export function BookDetailPage(props: BookDetailPageProps) {
             <Chip
               clickable
               component={Link}
-              href={
-                isAdmin
-                  ? LINKS.admin.booksCategory(data.category)
-                  : LINKS.booksCategory(data.category)
-              }
+              href={LINKS.booksCategory(data.category)}
               icon={<FontAwesomeIcon icon={faBookmark} />}
               label={CATEGORY_LABEL_MAP[data.category]}
             />

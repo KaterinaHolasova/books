@@ -12,12 +12,13 @@ import { Box, Button } from '@mui/material'
 import Error from 'next/error'
 import Link from 'next/link'
 import { CategoryDetailPageProps } from './types'
-import { useIsAdmin } from '@/hooks/useIsAdmin'
+import { useContext } from 'react'
+import { AdminContext } from '@/contexts/AdminContext/AdminContext'
 
 export function CategoryDetailPage(props: CategoryDetailPageProps) {
   const { category } = props
   const { data, isLoading } = useBookList()
-  const { isAdmin } = useIsAdmin()
+  const { isAdmin } = useContext(AdminContext)
 
   const categoryNotFound = !Object.values(Category).includes(category)
 
@@ -37,7 +38,7 @@ export function CategoryDetailPage(props: CategoryDetailPageProps) {
       >
         <Button
           component={Link}
-          href={isAdmin ? LINKS.admin.books : LINKS.books}
+          href={LINKS.books}
           startIcon={<FontAwesomeIcon icon={faChevronLeft} />}
           variant="outlined"
         >
@@ -46,7 +47,7 @@ export function CategoryDetailPage(props: CategoryDetailPageProps) {
         {isAdmin && (
           <Button
             component={Link}
-            href={LINKS.admin.newBookInCategory(category)}
+            href={LINKS.newBookInCategory(category)}
             startIcon={<FontAwesomeIcon icon={faPlus} />}
           >
             Add a new book
