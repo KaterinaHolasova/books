@@ -1,5 +1,5 @@
+import { BookCreatePage } from '@/components/pages/BookCreatePage'
 import { Metadata } from 'next'
-import { BookCreatePage } from './BookCreatePage'
 
 export const metadata: Metadata = {
   title: 'Add a new book',

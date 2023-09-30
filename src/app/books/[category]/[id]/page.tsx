@@ -1,4 +1,4 @@
-import { BookDetailPage } from './BookDetailPage'
+import { BookDetailPage } from '@/components/pages/BookDetailPage'
 import { API_URL } from '@/constants/apiUrl'
 import { fetcher } from '@/helpers/fetcher'
 import { Metadata } from 'next'

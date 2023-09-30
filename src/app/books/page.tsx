@@ -1,5 +1,5 @@
+import BookListPage from '@/components/pages/BookListPage/BookListPage'
 import { Metadata } from 'next'
-import BookListPage from './BookListPage'
 
 export const metadata: Metadata = {
   title: 'All books',

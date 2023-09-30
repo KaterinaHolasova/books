@@ -1,7 +1,7 @@
 import { fetcher } from '@/helpers/fetcher'
-import { BookEditPage } from './BookEditPage'
 import { Metadata } from 'next'
 import { API_URL } from '@/constants/apiUrl'
+import { BookEditPage } from '@/components/pages/BookEditPage'
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const data = await fetcher(API_URL.bookDetail(params.id))

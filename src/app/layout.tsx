@@ -2,8 +2,8 @@ import { Container } from '@mui/material'
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import { config } from '@fortawesome/fontawesome-svg-core'
-import { Navigation } from '@/components/Navigation'
-import { AppProviders } from '@/components/AppProviders'
+import { Navigation } from '@/components/layout/Navigation'
+import { AppProviders } from '@/components/app/AppProviders'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false

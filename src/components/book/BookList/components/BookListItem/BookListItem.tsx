@@ -1,9 +1,9 @@
 import { Box, ButtonBase, Stack, Theme, Typography, useMediaQuery } from '@mui/material'
 import { BookListItemProps } from './types'
 import { wrapperSx } from './styles'
-import { CoverImage } from '@/components/CoverImage'
+import { CoverImage } from '@/components/book/CoverImage'
 import Link from 'next/link'
-import { ActionMenu } from '@/components/ActionMenu'
+import { ActionMenu } from '@/components/common/ActionMenu'
 import { useActionMenuItems } from './hooks/useActionMenuItems'
 import { LINKS } from '@/constants/links'
 

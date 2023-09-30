@@ -6,7 +6,7 @@ import { BookFormProps } from './types'
 import { useState } from 'react'
 import { Category, CoverImage as CoverImageType } from '@/types/book'
 import { COVER_IMAGE_OPTIONS } from '@/constants/coverImageOptions'
-import { FormControl } from '../FormControl'
+import { FormControl } from '../../common/FormControl'
 import { CATEGORY_LABEL_MAP } from '@/constants/categoryLabelMap'
 
 export function BookForm<T extends FieldValues>(props: BookFormProps<T>) {

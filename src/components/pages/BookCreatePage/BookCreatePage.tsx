@@ -1,6 +1,6 @@
 'use client'
-import { BookForm } from '@/components/BookForm'
-import { Header } from '@/components/Header'
+import { BookForm } from '@/components/book/BookForm'
+import { Header } from '@/components/layout/Header'
 import { useBookCreate } from '@/hooks/useBookCreate'
 import { Category } from '@/types/book'
 import { useSearchParams } from 'next/navigation'
