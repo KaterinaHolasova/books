@@ -12,7 +12,7 @@ import { FormControl } from '../FormControl'
 export function BookForm<T extends FieldValues>(props: BookFormProps<T>) {
   const { defaultValues, onSubmit } = props
   const router = useRouter()
-  const [coverImage, setCoverImage] = useState<CoverImageType>()
+  const [coverImage, setCoverImage] = useState<CoverImageType>(defaultValues?.coverImage)
 
   return (
     <FormContainer defaultValues={defaultValues} onSuccess={onSubmit}>
