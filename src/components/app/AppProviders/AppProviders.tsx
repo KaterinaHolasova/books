@@ -11,9 +11,11 @@ export function AppProviders(props: AppProvidersProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
       <SnackbarProvider autoHideDuration={4000}>
-        <AdminContextProvider>{children}</AdminContextProvider>
+        <AdminContextProvider>
+          <CssBaseline />
+          {children}
+        </AdminContextProvider>
       </SnackbarProvider>
     </ThemeProvider>
   )
