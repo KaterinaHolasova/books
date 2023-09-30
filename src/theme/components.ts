@@ -133,11 +133,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
     MuiIconButton: {
       styleOverrides: {
         root: {
-          transition: theme.transitions.create('color'),
-          ['&:hover']: {
-            backgroundColor: 'transparent',
-            color: theme.palette.primary.dark,
-          },
+          minWidth: 36,
         },
         sizeMedium: {
           fontSize: 20,
