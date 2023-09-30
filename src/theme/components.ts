@@ -130,6 +130,15 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
         },
       },
     },
+    MuiListItemIcon: {
+      styleOverrides: {
+        root: {
+          ['.MuiMenuItem-root &']: {
+            minWidth: theme.spacing(3),
+          },
+        },
+      },
+    },
     MuiMenu: {
       defaultProps: {
         elevation: 2,
@@ -144,7 +153,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
     MuiMenuItem: {
       styleOverrides: {
         root: {
-          color: theme.palette.text.secondary,
+          color: theme.palette.primary.main,
           fontSize: 14,
           padding: theme.spacing(1, 2),
 
