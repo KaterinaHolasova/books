@@ -1,3 +1,4 @@
+'use client'
 import { Book } from '@/types/book'
 
 export function createBook(data: Omit<Book, '_id'>) {
