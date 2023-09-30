@@ -73,6 +73,29 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
         },
       },
     },
+    MuiChip: {
+      defaultProps: {
+        color: 'primary',
+      },
+      styleOverrides: {
+        root: {
+          fontWeight: 700,
+        },
+        colorPrimary: {
+          color: theme.palette.primary.main,
+        },
+        filled: {
+          background: theme.palette.background.paper,
+        },
+        icon: {
+          marginLeft: theme.spacing(2),
+          marginRight: theme.spacing(-1),
+        },
+        label: {
+          padding: theme.spacing(0, 2),
+        },
+      },
+    },
     MuiContainer: {
       defaultProps: {
         maxWidth: 'xl',
@@ -107,6 +130,31 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
         },
       },
     },
+    MuiMenu: {
+      defaultProps: {
+        elevation: 2,
+      },
+      styleOverrides: {
+        paper: {
+          minWidth: 80,
+          background: theme.palette.background.default,
+        },
+      },
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          color: theme.palette.text.secondary,
+          fontSize: 14,
+          padding: theme.spacing(1, 2),
+
+          ['&.Mui-selected']: {
+            color: theme.palette.action.active,
+            fontWeight: 700,
+          },
+        },
+      },
+    },
     MuiLink: {
       defaultProps: {
         underline: 'none',
@@ -137,6 +185,16 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
     MuiPaper: {
       defaultProps: {
         elevation: 0,
+      },
+    },
+    MuiSkeleton: {
+      defaultProps: {
+        variant: 'rounded',
+      },
+      styleOverrides: {
+        root: {
+          background: theme.palette.background.paper,
+        },
       },
     },
     MuiStack: {

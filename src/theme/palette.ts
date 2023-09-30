@@ -1,29 +1,39 @@
 import { ThemeOptions } from '@mui/material'
+import { alpha, darken, lighten } from '@mui/material/styles'
+
+const colorPalette = {
+  primary: '#0f2c59',
+  secondary: '#dac0a3',
+  text: {
+    primary: '#030911',
+    secondary: '#7d8ca1',
+  },
+  background: {
+    paper: '#f8f0e5',
+    default: '#ffffff',
+  },
+}
 
 export default function getPalette(): ThemeOptions['palette'] {
   return {
     mode: 'light',
     primary: {
-      light: '#8795ac',
-      main: '#0F2C59',
-      dark: '#0c2347',
+      light: lighten(colorPalette.primary, 0.2),
+      main: colorPalette.primary,
+      dark: darken(colorPalette.primary, 0.4),
     },
     secondary: {
-      light: '#ecdfd1',
-      main: '#DAC0A3',
-      dark: '#ae9982',
+      light: lighten(colorPalette.secondary, 0.2),
+      main: colorPalette.secondary,
+      dark: darken(colorPalette.secondary, 0.4),
     },
-    text: {
-      primary: '#030911',
-      secondary: '#7D8CA1',
-    },
-    divider: '#ecdfd1',
-    background: {
-      paper: '#F8F0E5',
-      default: '#FFFFFF',
-    },
+    text: colorPalette.text,
+    divider: lighten(colorPalette.secondary, 0.2),
+    background: colorPalette.background,
     action: {
-      active: '#0F2C59',
+      active: colorPalette.primary,
+      hover: alpha(colorPalette.primary, 0.05),
+      focus: alpha(colorPalette.primary, 0.1),
     },
   }
 }
