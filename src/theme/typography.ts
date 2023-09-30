@@ -1,15 +1,7 @@
 import { Theme, ThemeOptions } from '@mui/material'
-import { Nunito_Sans } from 'next/font/google'
-
-const nunitoSans = Nunito_Sans({
-  weight: ['300', '400', '500', '700', '800'],
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 export default function getTypography(theme: Theme): ThemeOptions['typography'] {
   return {
-    fontFamily: nunitoSans.style.fontFamily,
     h1: {
       fontSize: 32,
       fontWeight: 800,
