@@ -1,3 +1,4 @@
+'use client'
 import { BookLayout } from '@/components/BookLayout'
 import { Header } from '@/components/Header'
 import { Loader } from '@/components/Loader'

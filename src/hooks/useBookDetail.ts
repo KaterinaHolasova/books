@@ -1,3 +1,4 @@
+'use client'
 import useSWR from 'swr'
 import { API_URL } from '@/constants/apiUrl'
 import { fetcher } from '@/helpers/fetcher'
