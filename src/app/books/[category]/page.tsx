@@ -1,5 +1,6 @@
 'use client'
 import { BookList } from '@/components/BookList'
+import { BookListLoader } from '@/components/BookListLoader'
 import { Header } from '@/components/Header'
 import { CATEGORY_LABEL_MAP } from '@/constants/categoryLabelMap'
 import { LINKS } from '@/constants/links'
@@ -12,7 +13,7 @@ import Error from 'next/error'
 import Link from 'next/link'
 
 export default function Page({ params }: { params: { category: Category } }) {
-  const { data } = useBookList()
+  const { data, loading } = useBookList()
   const categoryExists = Object.values(Category).includes(params.category)
 
   if (!categoryExists) {
@@ -47,7 +48,11 @@ export default function Page({ params }: { params: { category: Category } }) {
           Add a new book
         </Button>
       </Header>
-      <BookList data={data.filter((item) => item.category == params.category)} />
+      {loading ? (
+        <BookListLoader />
+      ) : (
+        <BookList data={data.filter((item) => item.category == params.category)} />
+      )}
     </>
   )
 }

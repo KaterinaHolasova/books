@@ -21,7 +21,12 @@ export function BookListItem(props: BookListItemProps) {
       <Stack component="span" spacing={1} sx={{ width: '100%' }}>
         <CoverImage alt={title} image={coverImage} />
         <Box component="span">
-          <Stack direction="row" justifyContent="space-between">
+          <Stack
+            alignItems="flex-start"
+            component="span"
+            direction="row"
+            justifyContent="space-between"
+          >
             <Typography component="span" variant="h4">
               {title}
             </Typography>

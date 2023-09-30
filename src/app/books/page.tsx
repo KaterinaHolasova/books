@@ -1,5 +1,6 @@
 'use client'
 import { BookList } from '@/components/BookList'
+import { BookListLoader } from '@/components/BookListLoader'
 import { Header } from '@/components/Header'
 import { LINKS } from '@/constants/links'
 import { useBookList } from '@/hooks/useBookList'
@@ -9,7 +10,7 @@ import { Button } from '@mui/material'
 import Link from 'next/link'
 
 export default function Page() {
-  const { data } = useBookList()
+  const { data, loading } = useBookList()
 
   return (
     <>
@@ -18,7 +19,7 @@ export default function Page() {
           Add a new book
         </Button>
       </Header>
-      <BookList data={data} />
+      {loading ? <BookListLoader /> : <BookList data={data} />}
     </>
   )
 }
