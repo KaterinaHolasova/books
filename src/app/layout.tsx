@@ -22,7 +22,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <AppProviders>
           <Navigation />
-          <Container sx={{ py: { xs: 3, sm: 4, lg: 6 } }}>{children}</Container>
+          <Container component="main" sx={{ py: { xs: 3, sm: 4, lg: 6 } }}>
+            {children}
+          </Container>
         </AppProviders>
       </body>
     </html>

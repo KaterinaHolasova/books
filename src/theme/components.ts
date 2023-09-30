@@ -114,6 +114,20 @@ export function getComponents(theme: Theme): ThemeOptions['components'] {
       defaultProps: {
         maxWidth: 'xl',
       },
+      styleOverrides: {
+        root: {
+          paddingLeft: theme.spacing(2),
+          paddingRight: theme.spacing(2),
+          [theme.breakpoints.up('sm')]: {
+            paddingLeft: theme.spacing(3),
+            paddingRight: theme.spacing(3),
+          },
+          [theme.breakpoints.up('lg')]: {
+            paddingLeft: theme.spacing(4),
+            paddingRight: theme.spacing(4),
+          },
+        },
+      },
     },
     MuiFormLabel: {
       styleOverrides: {
