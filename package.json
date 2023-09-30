@@ -22,7 +22,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "^7.46.2",
-    "react-hook-form-mui": "^6.5.2"
+    "react-hook-form-mui": "^6.5.2",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
     "@types/node": "latest",

@@ -13,15 +13,10 @@ import Error from 'next/error'
 import Link from 'next/link'
 
 export default function Page({ params }: { params: { id: string } }) {
-  const { data, loading } = useBookDetail(params.id)
+  const { data, error } = useBookDetail(params.id)
 
-  if (loading) {
-    return <Loader />
-  }
-
-  if (!data) {
-    return <Error statusCode={404} />
-  }
+  if (error) return <Error statusCode={404} />
+  if (!data) return <Loader />
 
   return (
     <BookLayout coverImage={data.coverImage}>

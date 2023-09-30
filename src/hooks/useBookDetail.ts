@@ -1,23 +1,14 @@
-'use client'
-import { useCallback, useEffect, useState } from 'react'
+import useSWR from 'swr'
+import { API_URL } from '@/constants/apiUrl'
+import { fetcher } from '@/helpers/fetcher'
 import { Book } from '@/types/book'
 
 export function useBookDetail(id: string) {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState<Book>()
+  const { data, error, isLoading } = useSWR<Book>(API_URL.bookDetail(id), fetcher)
 
-  const init = useCallback(async () => {
-    setData(
-      await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/books/${id}`).then((res) => {
-        setLoading(false)
-        return res.json()
-      })
-    )
-  }, [id])
-
-  useEffect(() => {
-    init()
-  }, [init])
-
-  return { data, loading }
+  return {
+    data,
+    error,
+    isLoading,
+  }
 }
