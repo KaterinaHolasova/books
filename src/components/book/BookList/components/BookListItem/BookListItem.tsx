@@ -6,10 +6,12 @@ import Link from 'next/link'
 import { ActionMenu } from '@/components/common/ActionMenu'
 import { useActionMenuItems } from './hooks/useActionMenuItems'
 import { LINKS } from '@/constants/links'
+import { useIsAdmin } from '@/hooks/useIsAdmin'
 
 export function BookListItem(props: BookListItemProps) {
   const { _id, author, category, coverImage, title } = props
   const actionMenuItems = useActionMenuItems(_id)
+  const { isAdmin } = useIsAdmin()
 
   const isTabletOrDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'))
 
@@ -17,7 +19,7 @@ export function BookListItem(props: BookListItemProps) {
     <ButtonBase
       component={Link}
       disableRipple
-      href={LINKS.bookDetail(_id, category)}
+      href={isAdmin ? LINKS.admin.bookDetail(_id, category) : LINKS.bookDetail(_id, category)}
       sx={wrapperSx}
     >
       <Box component="span" mb={1}>
@@ -33,7 +35,7 @@ export function BookListItem(props: BookListItemProps) {
         <Typography component="span" variant="h4">
           {title}
         </Typography>
-        {isTabletOrDesktop && <ActionMenu items={actionMenuItems} />}
+        {isAdmin && isTabletOrDesktop && <ActionMenu items={actionMenuItems} />}
       </Stack>
       <Typography component="span">{author}</Typography>
     </ButtonBase>

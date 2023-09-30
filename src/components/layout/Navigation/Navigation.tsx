@@ -15,14 +15,18 @@ import {
 import NextLink from 'next/link'
 import { containerSx, wrapperSx } from './styles'
 import { LINKS } from '@/constants/links'
+import { useIsAdmin } from '@/hooks/useIsAdmin'
 
 export function Navigation() {
+  const { isAdmin } = useIsAdmin()
   const isTabletOrDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'))
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
   })
+
+  const switchModeLink = isAdmin ? LINKS.books : LINKS.admin.books
 
   return (
     <Box sx={containerSx}>
@@ -40,14 +44,14 @@ export function Navigation() {
             {isTabletOrDesktop ? (
               <Button
                 component={NextLink}
-                href={LINKS.books}
+                href={switchModeLink}
                 startIcon={<FontAwesomeIcon icon={faLock} />}
                 variant="outlined"
               >
-                Admin mode
+                {isAdmin ? 'User mode' : 'Admin mode'}
               </Button>
             ) : (
-              <IconButton component={NextLink} href={LINKS.books}>
+              <IconButton component={NextLink} href={switchModeLink}>
                 <FontAwesomeIcon icon={faLock} />
               </IconButton>
             )}
