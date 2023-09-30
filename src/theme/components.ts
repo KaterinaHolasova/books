@@ -31,7 +31,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
       styleOverrides: {
         root: {
           borderRadius: 24,
-          fontWeight: 700,
+          fontWeight: theme.typography.fontWeightBold,
           textTransform: 'unset',
         },
         contained: {
@@ -90,7 +90,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
       },
       styleOverrides: {
         root: {
-          fontWeight: 700,
+          fontWeight: theme.typography.fontWeightBold,
         },
         colorPrimary: {
           color: theme.palette.primary.main,
@@ -120,7 +120,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
         root: {
           color: theme.palette.primary.main,
           fontSize: 14,
-          fontWeight: 700,
+          fontWeight: theme.typography.fontWeightBold,
           marginBottom: theme.spacing(1),
         },
       },
@@ -173,7 +173,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
 
           ['&.Mui-selected']: {
             color: theme.palette.action.active,
-            fontWeight: 700,
+            fontWeight: theme.typography.fontWeightBold,
           },
         },
       },
@@ -239,7 +239,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
       styleOverrides: {
         root: {
           ['& small']: {
-            fontWeight: theme.typography.fontWeightMedium,
+            fontWeight: theme.typography.fontWeightRegular,
             color: theme.palette.text.secondary,
           },
         },
