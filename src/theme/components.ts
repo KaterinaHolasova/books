@@ -2,6 +2,17 @@ import { Theme, ThemeOptions } from '@mui/material'
 
 export default function getComponents(theme: Theme): ThemeOptions['components'] {
   return {
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          backgroundColor: theme.palette.background.paper,
+          color: theme.palette.text.primary,
+          ['& .MuiAlert-icon']: {
+            color: theme.palette.text.primary,
+          },
+        },
+      },
+    },
     MuiAppBar: {
       defaultProps: {
         color: 'default',
