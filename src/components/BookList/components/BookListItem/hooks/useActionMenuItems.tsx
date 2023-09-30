@@ -1,12 +1,22 @@
+import { LINKS } from '@/constants/links'
 import { deleteBook } from '@/helpers/deleteBook'
 import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ListItemIcon, ListItemText, MenuItemProps } from '@mui/material'
+import { useRouter } from 'next/navigation'
+import { MouseEvent } from 'react'
 
-export function getActionMenuItems(id: string): MenuItemProps[] {
+export function useActionMenuItems(id: string): MenuItemProps[] {
+  const router = useRouter()
+
+  const handleOnClick = (event: MouseEvent<HTMLLIElement>, callback: () => void) => {
+    event.preventDefault()
+    callback()
+  }
+
   return [
     {
-      onClick: () => null,
+      onClick: (event) => handleOnClick(event, () => router.push(LINKS.editBook(id))),
       children: (
         <>
           <ListItemIcon>
@@ -17,7 +27,7 @@ export function getActionMenuItems(id: string): MenuItemProps[] {
       ),
     },
     {
-      onClick: () => deleteBook(id),
+      onClick: (event) => handleOnClick(event, () => deleteBook(id)),
       children: (
         <>
           <ListItemIcon>

@@ -4,11 +4,12 @@ import { wrapperSx } from './styles'
 import { CoverImage } from '@/components/CoverImage'
 import Link from 'next/link'
 import { ActionMenu } from '@/components/ActionMenu'
-import { getActionMenuItems } from './helpers'
+import { useActionMenuItems } from './hooks/useActionMenuItems'
 import { LINKS } from '@/constants/links'
 
 export function BookListItem(props: BookListItemProps) {
   const { _id, author, category, coverImage, title } = props
+  const actionMenuItems = useActionMenuItems(_id)
 
   return (
     <ButtonBase
@@ -24,7 +25,7 @@ export function BookListItem(props: BookListItemProps) {
             <Typography component="span" variant="h4">
               {title}
             </Typography>
-            <ActionMenu items={getActionMenuItems(_id)} />
+            <ActionMenu items={actionMenuItems} />
           </Stack>
           <Typography component="span" variant="body2">
             {author}
