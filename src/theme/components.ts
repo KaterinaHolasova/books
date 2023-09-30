@@ -53,6 +53,9 @@ export function getComponents(theme: Theme): ThemeOptions['components'] {
         sizeMedium: {
           padding: theme.spacing(1, 3),
         },
+        sizeSmall: {
+          padding: theme.spacing(0.5, 2),
+        },
         startIcon: {
           marginLeft: 0,
           marginRight: theme.spacing(2),
