@@ -1,5 +1,6 @@
 'use client'
 import { BookList } from '@/components/BookList'
+import { LINKS } from '@/constants/links'
 import { useBookList } from '@/hooks/useBookList'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,7 +16,7 @@ export default function Page() {
         <Typography variant="h1">All books</Typography>
         <Button
           component={NextLink}
-          href="/admin/books/new"
+          href={LINKS.newBook}
           startIcon={<FontAwesomeIcon icon={faPlus} />}
         >
           Add a new book

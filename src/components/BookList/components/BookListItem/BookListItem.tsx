@@ -5,12 +5,18 @@ import { CoverImage } from '@/components/CoverImage'
 import Link from 'next/link'
 import { ActionMenu } from '@/components/ActionMenu'
 import { getActionMenuItems } from './helpers'
+import { LINKS } from '@/constants/links'
 
 export function BookListItem(props: BookListItemProps) {
-  const { _id, author, coverImage, title } = props
+  const { _id, author, category, coverImage, title } = props
 
   return (
-    <ButtonBase component={Link} disableRipple href={`/admin/books/${_id}`} sx={wrapperSx}>
+    <ButtonBase
+      component={Link}
+      disableRipple
+      href={LINKS.bookDetail(_id, category)}
+      sx={wrapperSx}
+    >
       <Stack component="span" spacing={1} sx={{ width: '100%' }}>
         <CoverImage alt={title} image={coverImage} />
         <Box component="span">
