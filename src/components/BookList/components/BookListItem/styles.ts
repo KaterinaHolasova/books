@@ -1,8 +1,8 @@
 import { SxProps, Theme } from '@mui/material'
 
 export const wrapperSx: SxProps<Theme> = (theme) => ({
-  textAlign: 'left',
-  width: '100%',
+  flexDirection: 'column',
+  alignItems: 'stretch',
 
   ['& img']: {
     transition: theme.transitions.create('opacity'),

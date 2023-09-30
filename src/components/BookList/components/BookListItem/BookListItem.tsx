@@ -18,23 +18,21 @@ export function BookListItem(props: BookListItemProps) {
       href={LINKS.bookDetail(_id, category)}
       sx={wrapperSx}
     >
-      <Stack component="span" spacing={1} sx={{ width: '100%' }}>
+      <Box component="span" mb={1}>
         <CoverImage alt={title} image={coverImage} />
-        <Box component="span">
-          <Stack
-            alignItems="flex-start"
-            component="span"
-            direction="row"
-            justifyContent="space-between"
-          >
-            <Typography component="span" variant="h4">
-              {title}
-            </Typography>
-            <ActionMenu items={actionMenuItems} />
-          </Stack>
-          <Typography component="span">{author}</Typography>
-        </Box>
+      </Box>
+      <Stack
+        alignItems="flex-start"
+        component="span"
+        direction="row"
+        justifyContent="space-between"
+      >
+        <Typography component="span" variant="h4">
+          {title}
+        </Typography>
+        <ActionMenu items={actionMenuItems} />
       </Stack>
+      <Typography component="span">{author}</Typography>
     </ButtonBase>
   )
 }
