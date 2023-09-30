@@ -22,10 +22,7 @@ export function BookForm<T extends FieldValues>(props: BookFormProps<T>) {
           <Alert severity="info">Select cover image to see the book preview</Alert>
         }
       >
-        <Typography variant="h1" gutterBottom>
-          Add a new book
-        </Typography>
-        <Box mb={{ xs: 3, lg: 4 }}>
+        <Box mb={{ xs: 2, sm: 3, lg: 4 }}>
           <Stack spacing={2}>
             <FormControl defaultValue={defaultValues?.title} name="title" required title="Title" />
             <FormControl

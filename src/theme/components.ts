@@ -124,7 +124,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
     },
     MuiGrid: {
       defaultProps: {
-        spacing: { xs: 3, lg: 4 },
+        spacing: { xs: 2, sm: 3, lg: 4 },
       },
     },
     MuiIconButton: {
@@ -219,13 +219,23 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
     },
     MuiStack: {
       defaultProps: {
-        spacing: { xs: 3, lg: 4 },
+        spacing: { xs: 2, sm: 3, lg: 4 },
       },
     },
     MuiTouchRipple: {
       styleOverrides: {
         root: {
           color: theme.palette.secondary.main,
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          ['& small']: {
+            fontWeight: theme.typography.fontWeightMedium,
+            color: theme.palette.text.secondary,
+          },
         },
       },
     },

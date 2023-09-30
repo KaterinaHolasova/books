@@ -1,19 +1,19 @@
 'use client'
 import { BookList } from '@/components/BookList'
+import { Header } from '@/components/Header'
 import { LINKS } from '@/constants/links'
 import { useBookList } from '@/hooks/useBookList'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Button } from '@mui/material'
 import NextLink from 'next/link'
 
 export default function Page() {
   const { data } = useBookList()
 
   return (
-    <Stack>
-      <Stack direction="row" justifyContent="space-between">
-        <Typography variant="h1">All books</Typography>
+    <>
+      <Header title="All books">
         <Button
           component={NextLink}
           href={LINKS.newBook}
@@ -21,10 +21,8 @@ export default function Page() {
         >
           Add a new book
         </Button>
-      </Stack>
-      <Box>
-        <BookList data={data} />
-      </Box>
-    </Stack>
+      </Header>
+      <BookList data={data} />
+    </>
   )
 }
