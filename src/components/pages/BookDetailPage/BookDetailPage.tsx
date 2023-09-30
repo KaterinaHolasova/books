@@ -49,7 +49,7 @@ export function BookDetailPage(props: BookDetailPageProps) {
           )}
         </Header>
         <dl>
-          <Box mb={2}>
+          <Box mb={data.description ? 2 : 0}>
             <Typography component="dt" gutterBottom variant="h4">
               Category
             </Typography>
@@ -61,12 +61,14 @@ export function BookDetailPage(props: BookDetailPageProps) {
               label={CATEGORY_LABEL_MAP[data.category]}
             />
           </Box>
-          <Box mb={2}>
-            <Typography component="dt" gutterBottom variant="h4">
-              Description
-            </Typography>
-            <Typography component="dd">{data.description}</Typography>
-          </Box>
+          {data.description && (
+            <Box mb={2}>
+              <Typography component="dt" gutterBottom variant="h4">
+                Description
+              </Typography>
+              <Typography component="dd">{data.description}</Typography>
+            </Box>
+          )}
         </dl>
       </BookLayout>
     )
