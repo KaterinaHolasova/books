@@ -9,12 +9,21 @@ import { useBookDetail } from '@/hooks/useBookDetail'
 import { faBookmark, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Box, Chip, IconButton, Typography } from '@mui/material'
+import Error from 'next/error'
 import Link from 'next/link'
 
 export default function Page({ params }: { params: { id: string } }) {
-  const { data } = useBookDetail(params.id)
+  const { data, loading } = useBookDetail(params.id)
 
-  return data ? (
+  if (loading) {
+    return <Loader />
+  }
+
+  if (!data) {
+    return <Error statusCode={404} />
+  }
+
+  return (
     <BookLayout coverImage={data.coverImage}>
       <Header
         title={
@@ -55,7 +64,5 @@ export default function Page({ params }: { params: { id: string } }) {
         </Box>
       </dl>
     </BookLayout>
-  ) : (
-    <Loader />
   )
 }

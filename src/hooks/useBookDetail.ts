@@ -3,11 +3,15 @@ import { useCallback, useEffect, useState } from 'react'
 import { Book } from '@/types/book'
 
 export function useBookDetail(id: string) {
+  const [loading, setLoading] = useState(true)
   const [data, setData] = useState<Book>()
 
   const init = useCallback(async () => {
     setData(
-      await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/books/${id}`).then((res) => res.json())
+      await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/books/${id}`).then((res) => {
+        setLoading(false)
+        return res.json()
+      })
     )
   }, [id])
 
@@ -15,5 +19,5 @@ export function useBookDetail(id: string) {
     init()
   }, [init])
 
-  return { data }
+  return { data, loading }
 }
