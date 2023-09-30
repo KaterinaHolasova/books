@@ -1,10 +1,13 @@
 'use client'
 import { BookLayout } from '@/components/BookLayout'
 import { Header } from '@/components/Header'
+import { LINKS } from '@/constants/links'
+import { deleteBook } from '@/helpers/deleteBook'
 import { useBookDetail } from '@/hooks/useBookDetail'
 import { faBookmark, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Box, Chip, IconButton, Typography } from '@mui/material'
+import Link from 'next/link'
 
 export default function Page({ params }: { params: { id: string } }) {
   const { data } = useBookDetail(params.id)
@@ -20,10 +23,10 @@ export default function Page({ params }: { params: { id: string } }) {
           </>
         }
       >
-        <IconButton>
+        <IconButton component={Link} href={LINKS.editBook(params.id)}>
           <FontAwesomeIcon icon={faPen} />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => deleteBook(params.id)}>
           <FontAwesomeIcon icon={faTrashCan} />
         </IconButton>
       </Header>

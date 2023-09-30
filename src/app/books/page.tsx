@@ -6,7 +6,7 @@ import { useBookList } from '@/hooks/useBookList'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@mui/material'
-import NextLink from 'next/link'
+import Link from 'next/link'
 
 export default function Page() {
   const { data } = useBookList()
@@ -14,11 +14,7 @@ export default function Page() {
   return (
     <>
       <Header title="All books">
-        <Button
-          component={NextLink}
-          href={LINKS.newBook}
-          startIcon={<FontAwesomeIcon icon={faPlus} />}
-        >
+        <Button component={Link} href={LINKS.newBook} startIcon={<FontAwesomeIcon icon={faPlus} />}>
           Add a new book
         </Button>
       </Header>
