@@ -1,6 +1,7 @@
 'use client'
 import { BookLayout } from '@/components/BookLayout'
 import { Header } from '@/components/Header'
+import { Loader } from '@/components/Loader'
 import { LINKS } from '@/constants/links'
 import { deleteBook } from '@/helpers/deleteBook'
 import { useBookDetail } from '@/hooks/useBookDetail'
@@ -12,14 +13,14 @@ import Link from 'next/link'
 export default function Page({ params }: { params: { id: string } }) {
   const { data } = useBookDetail(params.id)
 
-  return (
-    <BookLayout coverImage={data?.coverImage}>
+  return data ? (
+    <BookLayout coverImage={data.coverImage}>
       <Header
         title={
           <>
-            {data?.title}
+            {data.title}
             <br />
-            <small>{data?.author}</small>
+            <small>{data.author}</small>
           </>
         }
       >
@@ -35,17 +36,19 @@ export default function Page({ params }: { params: { id: string } }) {
           <Typography component="dt" gutterBottom variant="h4">
             Category
           </Typography>
-          <Chip icon={<FontAwesomeIcon icon={faBookmark} />} label={data?.category} />
+          <Chip icon={<FontAwesomeIcon icon={faBookmark} />} label={data.category} />
         </Box>
         <Box mb={2}>
           <Typography component="dt" gutterBottom variant="h4">
             Description
           </Typography>
           <Typography component="dd" variant="body2">
-            {data?.description}
+            {data.description}
           </Typography>
         </Box>
       </dl>
     </BookLayout>
+  ) : (
+    <Loader />
   )
 }

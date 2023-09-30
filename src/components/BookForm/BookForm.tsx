@@ -15,7 +15,7 @@ export function BookForm<T extends FieldValues>(props: BookFormProps<T>) {
   const [coverImage, setCoverImage] = useState<CoverImageType>()
 
   return (
-    <FormContainer onSuccess={onSubmit}>
+    <FormContainer defaultValues={defaultValues} onSuccess={onSubmit}>
       <BookLayout
         coverImage={coverImage}
         coverImagePlaceholder={
@@ -24,40 +24,22 @@ export function BookForm<T extends FieldValues>(props: BookFormProps<T>) {
       >
         <Box mb={{ xs: 2, sm: 3, lg: 4 }}>
           <Stack spacing={2}>
-            <FormControl defaultValue={defaultValues?.title} name="title" required title="Title" />
-            <FormControl
-              defaultValue={defaultValues?.author}
-              name="author"
-              required
-              title="Author"
-            />
-            <FormControl
-              defaultValue={defaultValues?.category}
-              name="category"
-              required
-              select
-              title="Category"
-            >
+            <FormControl label="Title" name="title" required />
+            <FormControl label="Author" name="author" required />
+            <FormControl label="Category" name="category" required select>
               {CATEGORY_OPTIONS.map(({ label, value }) => (
                 <MenuItem key={value} value={value}>
                   {label}
                 </MenuItem>
               ))}
             </FormControl>
+            <FormControl label="Description" name="description" multiline rows={4} />
             <FormControl
-              defaultValue={defaultValues?.description}
-              name="description"
-              multiline
-              rows={4}
-              title="Description"
-            />
-            <FormControl
-              defaultValue={defaultValues?.coverImage}
+              label="Cover image"
               name="coverImage"
               onChange={(e) => setCoverImage(e.target.value as CoverImageType)}
               required
               select
-              title="Cover image"
             >
               {COVER_IMAGE_OPTIONS.map(({ label, value }) => (
                 <MenuItem key={value} value={value}>
