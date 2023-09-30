@@ -1,33 +1,16 @@
-'use client'
-import { BookForm } from '@/components/BookForm'
-import { Header } from '@/components/Header'
-import { Loader } from '@/components/Loader'
-import { useBookDetail } from '@/hooks/useBookDetail'
-import { useBookUpdate } from '@/hooks/useBookUpdate'
-import { useRouter } from 'next/navigation'
+import { fetcher } from '@/helpers/fetcher'
+import { BookEditPage } from './BookEditPage'
+import { Metadata } from 'next'
+import { API_URL } from '@/constants/apiUrl'
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const data = await fetcher(API_URL.bookDetail(params.id))
+
+  return {
+    title: `Edit: ${data.title}`,
+  }
+}
 
 export default function Page({ params }: { params: { id: string } }) {
-  const { data, isLoading } = useBookDetail(params.id)
-  const router = useRouter()
-
-  const { updateBook } = useBookUpdate(params.id, () => router.back())
-
-  return (
-    <>
-      <Header title="Edit book" />
-      {data && (
-        <BookForm
-          defaultValues={{
-            author: data.author,
-            category: data.category,
-            coverImage: data.coverImage,
-            description: data.description,
-            title: data.title,
-          }}
-          onSubmit={updateBook}
-        />
-      )}
-      {isLoading && <Loader />}
-    </>
-  )
+  return <BookEditPage id={params.id} />
 }
