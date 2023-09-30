@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     default: 'Books',
     template: '%s | Books',
   },
-  description: 'Book Store',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

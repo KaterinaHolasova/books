@@ -1,17 +1,20 @@
 'use client'
 import { SnackbarProvider } from 'notistack'
 import { AppProvidersProps } from './types'
-import { ThemeRegistry } from './components/ThemeRegistry'
 import { AdminContextProvider } from '@/contexts/AdminContext/AdminContextProvider'
+import { ThemeProvider } from '@mui/material/styles'
+import { theme } from '@/theme'
+import { CssBaseline } from '@mui/material'
 
 export function AppProviders(props: AppProvidersProps) {
   const { children } = props
 
   return (
-    <ThemeRegistry>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <SnackbarProvider autoHideDuration={4000}>
         <AdminContextProvider>{children}</AdminContextProvider>
       </SnackbarProvider>
-    </ThemeRegistry>
+    </ThemeProvider>
   )
 }
