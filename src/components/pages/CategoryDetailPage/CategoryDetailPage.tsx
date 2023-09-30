@@ -12,10 +12,13 @@ import { Box, Button } from '@mui/material'
 import Error from 'next/error'
 import Link from 'next/link'
 import { CategoryDetailPageProps } from './types'
+import { useIsAdmin } from '@/hooks/useIsAdmin'
 
 export function CategoryDetailPage(props: CategoryDetailPageProps) {
   const { category } = props
   const { data, isLoading } = useBookList()
+  const { isAdmin } = useIsAdmin()
+
   const categoryNotFound = !Object.values(Category).includes(category)
 
   if (categoryNotFound) return <Error statusCode={404} />
@@ -34,19 +37,21 @@ export function CategoryDetailPage(props: CategoryDetailPageProps) {
       >
         <Button
           component={Link}
-          href={LINKS.books}
+          href={isAdmin ? LINKS.admin.books : LINKS.books}
           startIcon={<FontAwesomeIcon icon={faChevronLeft} />}
           variant="outlined"
         >
           Show all books
         </Button>
-        <Button
-          component={Link}
-          href={LINKS.newBookInCategory(category)}
-          startIcon={<FontAwesomeIcon icon={faPlus} />}
-        >
-          Add a new book
-        </Button>
+        {isAdmin && (
+          <Button
+            component={Link}
+            href={LINKS.admin.newBookInCategory(category)}
+            startIcon={<FontAwesomeIcon icon={faPlus} />}
+          >
+            Add a new book
+          </Button>
+        )}
       </Header>
       {data && <BookList data={data.filter((item) => item.category == category)} />}
       {isLoading && <BookListLoader />}

@@ -1,6 +1,6 @@
+import { CategoryDetailPage } from '@/components/pages/CategoryDetailPage'
 import { CATEGORY_LABEL_MAP } from '@/constants/categoryLabelMap'
 import { Category } from '@/types/book'
-import { CategoryDetailPage } from '../../../components/pages/CategoryDetailPage'
 import { Metadata } from 'next'
 
 export async function generateMetadata({
