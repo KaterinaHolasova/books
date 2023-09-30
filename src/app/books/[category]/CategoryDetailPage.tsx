@@ -11,9 +11,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Box, Button } from '@mui/material'
 import Error from 'next/error'
 import Link from 'next/link'
-import { CategoryDetailProps } from './types'
+import { CategoryDetailPageProps } from './types'
 
-export default function CategoryDetail(props: CategoryDetailProps) {
+export function CategoryDetailPage(props: CategoryDetailPageProps) {
   const { category } = props
   const { data, isLoading } = useBookList()
   const categoryNotFound = !Object.values(Category).includes(category)

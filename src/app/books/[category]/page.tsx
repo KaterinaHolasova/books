@@ -1,6 +1,6 @@
 import { CATEGORY_LABEL_MAP } from '@/constants/categoryLabelMap'
 import { Category } from '@/types/book'
-import CategoryDetail from './CategoryDetail'
+import { CategoryDetailPage } from './CategoryDetailPage'
 import { Metadata } from 'next'
 
 export async function generateMetadata({
@@ -14,5 +14,5 @@ export async function generateMetadata({
 }
 
 export default function Page({ params }: { params: { category: Category } }) {
-  return <CategoryDetail category={params.category} />
+  return <CategoryDetailPage category={params.category} />
 }

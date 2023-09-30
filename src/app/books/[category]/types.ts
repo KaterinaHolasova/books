@@ -1,5 +1,5 @@
 import { Category } from '@/types/book'
 
-export type CategoryDetailProps = {
+export type CategoryDetailPageProps = {
   category: Category
 }

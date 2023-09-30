@@ -10,9 +10,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Box, Chip, IconButton, Typography } from '@mui/material'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { BookDetailProps } from './types'
+import { BookDetailPageProps } from './types'
 
-export function BookDetail(props: BookDetailProps) {
+export function BookDetailPage(props: BookDetailPageProps) {
   const { id } = props
   const { data, isLoading } = useBookDetail(id)
   const router = useRouter()

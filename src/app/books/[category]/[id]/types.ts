@@ -1,3 +1,3 @@
-export type BookDetailProps = {
+export type BookDetailPageProps = {
   id: string
 }
