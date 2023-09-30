@@ -46,8 +46,8 @@ export function getComponents(theme: Theme): ThemeOptions['components'] {
         outlined: {
           border: `2px solid ${theme.palette.secondary.light}`,
           ['&:hover']: {
-            backgroundColor: 'transparent',
             border: `2px solid ${theme.palette.secondary.main}`,
+            backgroundColor: 'transparent',
           },
         },
         sizeMedium: {
@@ -118,10 +118,10 @@ export function getComponents(theme: Theme): ThemeOptions['components'] {
     MuiFormLabel: {
       styleOverrides: {
         root: {
-          color: theme.palette.primary.main,
+          marginBottom: theme.spacing(1),
           fontSize: 14,
           fontWeight: theme.typography.fontWeightBold,
-          marginBottom: theme.spacing(1),
+          color: theme.palette.primary.main,
         },
       },
     },
@@ -163,13 +163,13 @@ export function getComponents(theme: Theme): ThemeOptions['components'] {
     MuiMenuItem: {
       styleOverrides: {
         root: {
-          color: theme.palette.primary.main,
-          fontSize: 14,
           padding: theme.spacing(1, 2),
+          fontSize: 14,
+          color: theme.palette.primary.main,
 
           ['&.Mui-selected']: {
-            color: theme.palette.action.active,
             fontWeight: theme.typography.fontWeightBold,
+            color: theme.palette.action.active,
           },
         },
       },
