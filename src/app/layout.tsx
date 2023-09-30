@@ -3,7 +3,7 @@ import { Container } from '@mui/material'
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import { config } from '@fortawesome/fontawesome-svg-core'
-import { Header } from '@/components/Header'
+import { Navigation } from '@/components/Navigation'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
         <ThemeRegistry>
-          <Header />
+          <Navigation />
           <Container sx={{ py: { xs: 3, sm: 4, lg: 6 } }}>{children}</Container>
         </ThemeRegistry>
       </body>

@@ -16,7 +16,7 @@ import NextLink from 'next/link'
 import { containerSx, wrapperSx } from './styles'
 import { LINKS } from '@/constants/links'
 
-export function Header() {
+export function Navigation() {
   const isTabletOrDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'))
 
   const trigger = useScrollTrigger({
