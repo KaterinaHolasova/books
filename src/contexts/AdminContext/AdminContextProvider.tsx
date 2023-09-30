@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 export function AdminContextProvider(props: AdminContextProviderProps) {
   const { children } = props
-  const [isAdmin, setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(true)
 
   return (
     <AdminContext.Provider value={{ isAdmin, toggleIsAdmin: () => setIsAdmin(!isAdmin) }}>
