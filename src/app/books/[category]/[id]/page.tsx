@@ -2,6 +2,7 @@
 import { BookLayout } from '@/components/BookLayout'
 import { Header } from '@/components/Header'
 import { Loader } from '@/components/Loader'
+import { CATEGORY_LABEL_MAP } from '@/constants/categoryLabelMap'
 import { LINKS } from '@/constants/links'
 import { deleteBook } from '@/helpers/deleteBook'
 import { useBookDetail } from '@/hooks/useBookDetail'
@@ -36,7 +37,13 @@ export default function Page({ params }: { params: { id: string } }) {
           <Typography component="dt" gutterBottom variant="h4">
             Category
           </Typography>
-          <Chip icon={<FontAwesomeIcon icon={faBookmark} />} label={data.category} />
+          <Chip
+            clickable
+            component={Link}
+            href={LINKS.booksCategory(data.category)}
+            icon={<FontAwesomeIcon icon={faBookmark} />}
+            label={CATEGORY_LABEL_MAP[data.category]}
+          />
         </Box>
         <Box mb={2}>
           <Typography component="dt" gutterBottom variant="h4">

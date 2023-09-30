@@ -3,5 +3,6 @@ export const LINKS = {
   books: '/books',
   editBook: (id: string) => `/books/edit/${id}`,
   newBook: '/books/new',
-  bookDetail: (id: string, category: string) => `/books/${category}/${id}`,
+  booksCategory: (id: string) => `/books/${id}`,
+  bookDetail: (id: string, categoryId: string) => `/books/${categoryId}/${id}`,
 }

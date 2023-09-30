@@ -5,10 +5,10 @@ import { FieldValues, FormContainer } from 'react-hook-form-mui'
 import { BookLayout } from '../BookLayout'
 import { BookFormProps } from './types'
 import { useState } from 'react'
-import { CoverImage as CoverImageType } from '@/types/book'
-import { CATEGORY_OPTIONS } from '@/constants/categoryOptions'
+import { Category, CoverImage as CoverImageType } from '@/types/book'
 import { COVER_IMAGE_OPTIONS } from '@/constants/coverImageOptions'
 import { FormControl } from '../FormControl'
+import { CATEGORY_LABEL_MAP } from '@/constants/categoryLabelMap'
 
 export function BookForm<T extends FieldValues>(props: BookFormProps<T>) {
   const { defaultValues, onSubmit } = props
@@ -28,9 +28,9 @@ export function BookForm<T extends FieldValues>(props: BookFormProps<T>) {
             <FormControl label="Title" name="title" required />
             <FormControl label="Author" name="author" required />
             <FormControl label="Category" name="category" required select>
-              {CATEGORY_OPTIONS.map(({ label, value }) => (
+              {(Object.keys(CATEGORY_LABEL_MAP) as Category[]).map((value) => (
                 <MenuItem key={value} value={value}>
-                  {label}
+                  {CATEGORY_LABEL_MAP[value]}
                 </MenuItem>
               ))}
             </FormControl>

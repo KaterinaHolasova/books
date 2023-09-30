@@ -18,21 +18,22 @@ export default function getPalette(): ThemeOptions['palette'] {
   return {
     mode: 'light',
     primary: {
-      light: lighten(colorPalette.primary, 0.2),
+      light: lighten(colorPalette.primary, 0.4),
       main: colorPalette.primary,
       dark: darken(colorPalette.primary, 0.4),
     },
     secondary: {
-      light: lighten(colorPalette.secondary, 0.2),
+      light: lighten(colorPalette.secondary, 0.4),
       main: colorPalette.secondary,
       dark: darken(colorPalette.secondary, 0.4),
     },
     text: colorPalette.text,
-    divider: lighten(colorPalette.secondary, 0.2),
+    divider: lighten(colorPalette.secondary, 0.4),
     background: colorPalette.background,
     action: {
       active: colorPalette.primary,
       hover: alpha(colorPalette.primary, 0.05),
+      hoverOpacity: 0.05,
       focus: alpha(colorPalette.primary, 0.1),
     },
   }

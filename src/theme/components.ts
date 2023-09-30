@@ -46,7 +46,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
         outlined: {
           border: `2px solid ${theme.palette.secondary.light}`,
           ['&:hover']: {
-            background: 'transparent',
+            backgroundColor: 'transparent',
             border: `2px solid ${theme.palette.secondary.main}`,
           },
         },
@@ -96,7 +96,10 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
           color: theme.palette.primary.main,
         },
         filled: {
-          background: theme.palette.background.paper,
+          backgroundColor: theme.palette.background.paper,
+          ['&:hover']: {
+            backgroundColor: theme.palette.secondary.light,
+          },
         },
         icon: {
           marginLeft: theme.spacing(2),
@@ -132,7 +135,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
         root: {
           transition: theme.transitions.create('color'),
           ['&:hover']: {
-            background: 'transparent',
+            backgroundColor: 'transparent',
             color: theme.palette.primary.dark,
           },
         },
@@ -157,7 +160,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
       styleOverrides: {
         paper: {
           minWidth: 80,
-          background: theme.palette.background.default,
+          backgroundColor: theme.palette.background.default,
         },
       },
     },
@@ -213,7 +216,7 @@ export default function getComponents(theme: Theme): ThemeOptions['components'] 
       },
       styleOverrides: {
         root: {
-          background: theme.palette.background.paper,
+          backgroundColor: theme.palette.background.paper,
         },
       },
     },
