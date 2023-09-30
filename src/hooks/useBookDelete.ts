@@ -1,4 +1,3 @@
-'use client'
 import { API_URL } from '@/constants/apiUrl'
 import { enqueueSnackbar } from 'notistack'
 import useSWRMutation from 'swr/mutation'

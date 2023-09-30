@@ -1,4 +1,3 @@
-'use client'
 import { Alert, Box, Button, MenuItem, Stack } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import { FieldValues, FormContainer } from 'react-hook-form-mui'
