@@ -19,6 +19,7 @@
     "@mui/material": "^5.14.11",
     "@mui/x-date-pickers": "^6.15.0",
     "next": "latest",
+    "notistack": "^3.0.1",
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "^7.46.2",

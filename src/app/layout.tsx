@@ -1,9 +1,9 @@
-import { ThemeRegistry } from '@/components/ThemeRegistry'
 import { Container } from '@mui/material'
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import { Navigation } from '@/components/Navigation'
+import { AppProviders } from '@/components/AppProviders'
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
@@ -20,10 +20,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <ThemeRegistry>
+        <AppProviders>
           <Navigation />
           <Container sx={{ py: { xs: 3, sm: 4, lg: 6 } }}>{children}</Container>
-        </ThemeRegistry>
+        </AppProviders>
       </body>
     </html>
   )

@@ -1,5 +1,5 @@
 import { LINKS } from '@/constants/links'
-import { deleteBook } from '@/helpers/deleteBook'
+import { useBookDelete } from '@/hooks/useBookDelete'
 import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ListItemIcon, ListItemText, MenuItemProps } from '@mui/material'
@@ -8,6 +8,7 @@ import { MouseEvent } from 'react'
 
 export function useActionMenuItems(id: string): MenuItemProps[] {
   const router = useRouter()
+  const { deleteBook } = useBookDelete(id)
 
   const handleOnClick = (event: MouseEvent<HTMLLIElement>, callback: () => void) => {
     event.preventDefault()
@@ -27,7 +28,7 @@ export function useActionMenuItems(id: string): MenuItemProps[] {
       ),
     },
     {
-      onClick: (event) => handleOnClick(event, () => deleteBook(id)),
+      onClick: (event) => handleOnClick(event, () => deleteBook().then(() => router.refresh())),
       children: (
         <>
           <ListItemIcon>

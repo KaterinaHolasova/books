@@ -1,13 +1,15 @@
 'use client'
 import { BookForm } from '@/components/BookForm'
 import { Header } from '@/components/Header'
-import { createBook } from '@/helpers/createBook'
+import { useBookCreate } from '@/hooks/useBookCreate'
 import { Category } from '@/types/book'
 import { useSearchParams } from 'next/navigation'
 
 export default function Page() {
   const searchParams = useSearchParams()
   const category = searchParams.get('category')
+
+  const { createBook } = useBookCreate()
 
   return (
     <>

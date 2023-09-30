@@ -1,6 +1,7 @@
 import { SxProps, Theme } from '@mui/material'
 
 export const wrapperSx: SxProps<Theme> = (theme) => ({
+  width: '100%',
   flexDirection: 'column',
   alignItems: 'stretch',
 
