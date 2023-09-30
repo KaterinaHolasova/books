@@ -9,53 +9,53 @@ import { useBookDetail } from '@/hooks/useBookDetail'
 import { faBookmark, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Box, Chip, IconButton, Typography } from '@mui/material'
-import Error from 'next/error'
 import Link from 'next/link'
 
 export default function Page({ params }: { params: { id: string } }) {
-  const { data, error } = useBookDetail(params.id)
+  const { data, isLoading } = useBookDetail(params.id)
 
-  if (error) return <Error statusCode={404} />
-  if (!data) return <Loader />
+  if (isLoading) return <Loader />
 
   return (
-    <BookLayout coverImage={data.coverImage}>
-      <Header
-        title={
-          <>
-            {data.title}
-            <br />
-            <small>{data.author}</small>
-          </>
-        }
-      >
-        <IconButton component={Link} href={LINKS.editBook(params.id)}>
-          <FontAwesomeIcon icon={faPen} />
-        </IconButton>
-        <IconButton onClick={() => deleteBook(params.id)}>
-          <FontAwesomeIcon icon={faTrashCan} />
-        </IconButton>
-      </Header>
-      <dl>
-        <Box mb={2}>
-          <Typography component="dt" gutterBottom variant="h4">
-            Category
-          </Typography>
-          <Chip
-            clickable
-            component={Link}
-            href={LINKS.booksCategory(data.category)}
-            icon={<FontAwesomeIcon icon={faBookmark} />}
-            label={CATEGORY_LABEL_MAP[data.category]}
-          />
-        </Box>
-        <Box mb={2}>
-          <Typography component="dt" gutterBottom variant="h4">
-            Description
-          </Typography>
-          <Typography component="dd">{data.description}</Typography>
-        </Box>
-      </dl>
-    </BookLayout>
+    data && (
+      <BookLayout coverImage={data.coverImage}>
+        <Header
+          title={
+            <>
+              {data.title}
+              <br />
+              <small>{data.author}</small>
+            </>
+          }
+        >
+          <IconButton component={Link} href={LINKS.editBook(params.id)}>
+            <FontAwesomeIcon icon={faPen} />
+          </IconButton>
+          <IconButton onClick={() => deleteBook(params.id)}>
+            <FontAwesomeIcon icon={faTrashCan} />
+          </IconButton>
+        </Header>
+        <dl>
+          <Box mb={2}>
+            <Typography component="dt" gutterBottom variant="h4">
+              Category
+            </Typography>
+            <Chip
+              clickable
+              component={Link}
+              href={LINKS.booksCategory(data.category)}
+              icon={<FontAwesomeIcon icon={faBookmark} />}
+              label={CATEGORY_LABEL_MAP[data.category]}
+            />
+          </Box>
+          <Box mb={2}>
+            <Typography component="dt" gutterBottom variant="h4">
+              Description
+            </Typography>
+            <Typography component="dd">{data.description}</Typography>
+          </Box>
+        </dl>
+      </BookLayout>
+    )
   )
 }

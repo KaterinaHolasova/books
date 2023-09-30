@@ -13,12 +13,10 @@ import Error from 'next/error'
 import Link from 'next/link'
 
 export default function Page({ params }: { params: { category: Category } }) {
-  const { data, loading } = useBookList()
+  const { data, isLoading } = useBookList()
   const categoryExists = Object.values(Category).includes(params.category)
 
-  if (!categoryExists) {
-    return <Error statusCode={404} />
-  }
+  if (!categoryExists) return <Error statusCode={404} />
 
   return (
     <>
@@ -48,11 +46,8 @@ export default function Page({ params }: { params: { category: Category } }) {
           Add a new book
         </Button>
       </Header>
-      {loading ? (
-        <BookListLoader />
-      ) : (
-        <BookList data={data.filter((item) => item.category == params.category)} />
-      )}
+      {data && <BookList data={data.filter((item) => item.category == params.category)} />}
+      {isLoading && <BookListLoader />}
     </>
   )
 }

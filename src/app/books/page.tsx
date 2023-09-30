@@ -10,7 +10,7 @@ import { Button } from '@mui/material'
 import Link from 'next/link'
 
 export default function Page() {
-  const { data, loading } = useBookList()
+  const { data, isLoading } = useBookList()
 
   return (
     <>
@@ -19,7 +19,8 @@ export default function Page() {
           Add a new book
         </Button>
       </Header>
-      {loading ? <BookListLoader /> : <BookList data={data} />}
+      {data && <BookList data={data} />}
+      {isLoading && <BookListLoader />}
     </>
   )
 }

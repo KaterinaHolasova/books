@@ -11,11 +11,8 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <>
       <Header title="Edit book" />
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <BookForm defaultValues={data} onSubmit={(data) => updateBook(params.id, data)} />
-      )}
+      {data && <BookForm defaultValues={data} onSubmit={(data) => updateBook(params.id, data)} />}
+      {isLoading && <Loader />}
     </>
   )
 }

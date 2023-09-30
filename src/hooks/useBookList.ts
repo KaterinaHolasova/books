@@ -1,22 +1,14 @@
-import { useEffect, useState } from 'react'
+import useSWR from 'swr'
+import { API_URL } from '@/constants/apiUrl'
+import { fetcher } from '@/helpers/fetcher'
 import { Book } from '@/types/book'
 
 export function useBookList() {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState<Book[]>([])
+  const { data, error, isLoading } = useSWR<Book[]>(API_URL.bookList, fetcher)
 
-  const init = async () => {
-    setData(
-      await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/books`).then((res) => {
-        setLoading(false)
-        return res.json()
-      })
-    )
+  return {
+    data,
+    error,
+    isLoading,
   }
-
-  useEffect(() => {
-    init()
-  }, [])
-
-  return { data, loading }
 }
