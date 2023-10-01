@@ -6,7 +6,11 @@ export function Header(props: HeaderProps) {
 
   return (
     <Box mb={{ xs: 2, sm: 3, lg: 4 }}>
-      <Stack alignItems="flex-start" direction={{ md: 'row' }} justifyContent="space-between">
+      <Stack
+        alignItems="flex-start"
+        direction={{ sm: 'column', md: 'row' }}
+        justifyContent="space-between"
+      >
         <Typography variant="h1">{title}</Typography>
         <Stack direction="row" spacing={1}>
           {children}

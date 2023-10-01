@@ -50,7 +50,7 @@ export function Navigation() {
               </Button>
             ) : (
               <IconButton onClick={toggleIsAdmin}>
-                <FontAwesomeIcon icon={faLock} />
+                <FontAwesomeIcon icon={isAdmin ? faUser : faLock} />
               </IconButton>
             )}
           </Stack>

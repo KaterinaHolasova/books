@@ -9,10 +9,11 @@ import { useContext } from 'react'
 
 export function HomePage() {
   const { isAdmin } = useContext(AdminContext)
+
   return (
     <Stack alignItems="center" textAlign="center">
       <Typography variant="h1">Welcome to Books!</Typography>
-      <Stack direction="row" spacing={2}>
+      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
         <Button
           component={Link}
           href={LINKS.books}

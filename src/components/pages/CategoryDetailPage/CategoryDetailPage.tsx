@@ -8,7 +8,7 @@ import { useBookList } from '@/hooks/useBookList'
 import { Category } from '@/types/book'
 import { faBookmark, faChevronLeft, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Box, Button } from '@mui/material'
+import { Box, Button, Theme, useMediaQuery } from '@mui/material'
 import Error from 'next/error'
 import Link from 'next/link'
 import { CategoryDetailPageProps } from './types'
@@ -19,6 +19,7 @@ export function CategoryDetailPage(props: CategoryDetailPageProps) {
   const { category } = props
   const { data, isLoading } = useBookList()
   const { isAdmin } = useContext(AdminContext)
+  const isTabletOrDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'))
 
   const categoryNotFound = !Object.values(Category).includes(category)
 
@@ -42,7 +43,7 @@ export function CategoryDetailPage(props: CategoryDetailPageProps) {
           startIcon={<FontAwesomeIcon icon={faChevronLeft} />}
           variant="outlined"
         >
-          Show all books
+          {isTabletOrDesktop ? 'Show all books' : 'Show all'}
         </Button>
         {isAdmin && (
           <Button
@@ -50,7 +51,7 @@ export function CategoryDetailPage(props: CategoryDetailPageProps) {
             href={LINKS.newBookInCategory(category)}
             startIcon={<FontAwesomeIcon icon={faPlus} />}
           >
-            Add a new book
+            {isTabletOrDesktop ? 'Add a new book' : 'Add'}
           </Button>
         )}
       </Header>
