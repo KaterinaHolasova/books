@@ -12,7 +12,7 @@ export function Header(props: HeaderProps) {
         justifyContent="space-between"
       >
         <Typography variant="h1">{title}</Typography>
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={2}>
           {children}
         </Stack>
       </Stack>
