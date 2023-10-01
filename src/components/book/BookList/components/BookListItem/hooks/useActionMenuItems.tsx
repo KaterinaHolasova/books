@@ -3,7 +3,7 @@ import { LINKS } from '@/constants/links'
 import { useBookDelete } from '@/hooks/useBookDelete'
 import { faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { ListItemIcon, ListItemText, MenuItemProps } from '@mui/material'
+import { CircularProgress, ListItemIcon, ListItemText, MenuItemProps } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import { MouseEvent } from 'react'
 import { useSWRConfig } from 'swr'
@@ -12,7 +12,7 @@ export function useActionMenuItems(id: string): MenuItemProps[] {
   const router = useRouter()
   const { mutate } = useSWRConfig()
 
-  const { deleteBook } = useBookDelete(id, () => mutate(API_URL.bookList))
+  const { deleteBook, isMutating } = useBookDelete(id, () => mutate(API_URL.bookList))
 
   const handleOnClick = (event: MouseEvent<HTMLLIElement>, callback: () => void) => {
     event.preventDefault()
@@ -32,11 +32,12 @@ export function useActionMenuItems(id: string): MenuItemProps[] {
       ),
     },
     {
-      onClick: (event) => handleOnClick(event, () => deleteBook().then(() => router.refresh())),
+      disabled: isMutating,
+      onClick: (event) => handleOnClick(event, deleteBook),
       children: (
         <>
           <ListItemIcon>
-            <FontAwesomeIcon icon={faTrashCan} />
+            {isMutating ? <CircularProgress /> : <FontAwesomeIcon icon={faTrashCan} />}
           </ListItemIcon>
           <ListItemText>Delete</ListItemText>
         </>

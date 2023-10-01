@@ -113,6 +113,11 @@ export function getComponents(theme: Theme): ThemeOptions['components'] {
         },
       },
     },
+    MuiCircularProgress: {
+      defaultProps: {
+        size: 20,
+      },
+    },
     MuiContainer: {
       defaultProps: {
         maxWidth: 'xl',

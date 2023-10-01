@@ -16,14 +16,14 @@ export function BookCreatePage() {
   const searchParams = useSearchParams()
   const category = searchParams.get('category')
 
-  const { createBook } = useBookCreate(() => router.back())
+  const { createBook, isMutating } = useBookCreate(() => router.back())
 
   return (
     <>
       <Header title="Add a new book" />
       <AdminZoneAlert />
       {isAdmin && (
-        <BookForm defaultValues={{ category: category as Category }} onSubmit={createBook} />
+        <BookForm defaultValues={{ category: category as Category }} isMutating={isMutating} onSubmit={createBook} />
       )}
     </>
   )

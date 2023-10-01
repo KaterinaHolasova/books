@@ -4,7 +4,7 @@ import { enqueueSnackbar } from 'notistack'
 import useSWRMutation from 'swr/mutation'
 
 export function useBookCreate(callback?: () => void) {
-  const { trigger } = useSWRMutation(API_URL.bookList, (url, { arg }: { arg: BookInput }) =>
+  const { trigger, isMutating } = useSWRMutation(API_URL.bookList, (url, { arg }: { arg: BookInput }) =>
     fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -15,5 +15,5 @@ export function useBookCreate(callback?: () => void) {
     })
   )
 
-  return { createBook: (data: BookInput) => trigger(data) }
+  return { createBook: (data: BookInput) => trigger(data), isMutating }
 }

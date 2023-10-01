@@ -8,7 +8,7 @@ import { useBookDelete } from '@/hooks/useBookDelete'
 import { useBookDetail } from '@/hooks/useBookDetail'
 import { faBookmark, faPen, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Box, Chip, IconButton, Typography } from '@mui/material'
+import { Box, Chip, CircularProgress, IconButton, Typography } from '@mui/material'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { BookDetailPageProps } from './types'
@@ -21,7 +21,7 @@ export function BookDetailPage(props: BookDetailPageProps) {
   const { isAdmin } = useContext(AdminContext)
   const router = useRouter()
 
-  const { deleteBook } = useBookDelete(id, () => router.back())
+  const { deleteBook, isMutating } = useBookDelete(id, () => router.back())
 
   if (isLoading) return <Loader />
 
@@ -42,8 +42,11 @@ export function BookDetailPage(props: BookDetailPageProps) {
               <IconButton component={Link} href={LINKS.editBook(id)}>
                 <FontAwesomeIcon icon={faPen} />
               </IconButton>
-              <IconButton onClick={() => deleteBook().then(() => router.back())}>
-                <FontAwesomeIcon icon={faTrashCan} />
+              <IconButton
+                disabled={isMutating}
+                onClick={() => deleteBook().then(() => router.back())}
+              >
+                {isMutating ? <CircularProgress /> : <FontAwesomeIcon icon={faTrashCan} />}
               </IconButton>
             </>
           )}

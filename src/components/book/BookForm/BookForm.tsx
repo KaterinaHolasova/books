@@ -1,4 +1,4 @@
-import { Alert, Box, Button, MenuItem, Stack } from '@mui/material'
+import { Alert, Box, Button, CircularProgress, MenuItem, Stack } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import { FieldValues, FormContainer } from 'react-hook-form-mui'
 import { BookLayout } from '../BookLayout'
@@ -10,7 +10,7 @@ import { FormControl } from '../../common/FormControl'
 import { CATEGORY_LABEL_MAP } from '@/constants/categoryLabelMap'
 
 export function BookForm<T extends FieldValues>(props: BookFormProps<T>) {
-  const { defaultValues, onSubmit } = props
+  const { defaultValues, isMutating, onSubmit } = props
   const router = useRouter()
   const [coverImage, setCoverImage] = useState<CoverImageType>(defaultValues?.coverImage)
 
@@ -53,7 +53,12 @@ export function BookForm<T extends FieldValues>(props: BookFormProps<T>) {
           <Button fullWidth onClick={() => router.back()} variant="outlined">
             Cancel
           </Button>
-          <Button fullWidth type="submit">
+          <Button
+            disabled={isMutating}
+            fullWidth
+            startIcon={isMutating && <CircularProgress />}
+            type="submit"
+          >
             Submit
           </Button>
         </Stack>

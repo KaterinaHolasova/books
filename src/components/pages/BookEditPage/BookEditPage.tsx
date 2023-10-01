@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation'
 import { BookEditPageProps } from './types'
 import { useContext } from 'react'
 import { AdminContext } from '@/contexts/AdminContext/AdminContext'
-import { Alert, Link } from '@mui/material'
 import { AdminZoneAlert } from '@/components/common/AdminZoneAlert'
 
 export function BookEditPage(props: BookEditPageProps) {
@@ -17,7 +16,7 @@ export function BookEditPage(props: BookEditPageProps) {
   const { isAdmin } = useContext(AdminContext)
   const router = useRouter()
 
-  const { updateBook } = useBookUpdate(id, () => router.back())
+  const { updateBook, isMutating } = useBookUpdate(id, () => router.back())
 
   return (
     <>
@@ -32,6 +31,7 @@ export function BookEditPage(props: BookEditPageProps) {
             description: data.description,
             title: data.title,
           }}
+          isMutating={isMutating}
           onSubmit={updateBook}
         />
       )}
