@@ -7,10 +7,10 @@ export function useBookDelete(id: string, callback?: () => void) {
     fetch(url, {
       method: 'DELETE',
     }).then(() => {
-      enqueueSnackbar(`Book deleted`, { variant: 'success' })
+      enqueueSnackbar('Book deleted', { variant: 'success' })
       callback?.()
     })
   )
 
-  return { deleteBook: trigger, isMutating }
+  return { deleteBook: () => trigger(), isMutating }
 }

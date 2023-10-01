@@ -42,10 +42,7 @@ export function BookDetailPage(props: BookDetailPageProps) {
               <IconButton component={Link} href={LINKS.editBook(id)}>
                 <FontAwesomeIcon icon={faPen} />
               </IconButton>
-              <IconButton
-                disabled={isMutating}
-                onClick={() => deleteBook().then(() => router.back())}
-              >
+              <IconButton disabled={isMutating} onClick={deleteBook}>
                 {isMutating ? <CircularProgress /> : <FontAwesomeIcon icon={faTrashCan} />}
               </IconButton>
             </>
@@ -65,12 +62,12 @@ export function BookDetailPage(props: BookDetailPageProps) {
             />
           </Box>
           {data.description && (
-            <Box mb={2}>
+            <>
               <Typography component="dt" gutterBottom variant="h4">
                 Description
               </Typography>
               <Typography component="dd">{data.description}</Typography>
-            </Box>
+            </>
           )}
         </dl>
       </BookLayout>

@@ -22,7 +22,7 @@ export function Navigation() {
   const { isAdmin, toggleIsAdmin } = useContext(AdminContext)
   const isTabletOrDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'))
 
-  const trigger = useScrollTrigger({
+  const scrolled = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
   })
@@ -30,7 +30,7 @@ export function Navigation() {
   return (
     <Box sx={containerSx}>
       <AppBar>
-        <Box sx={wrapperSx(trigger)}>
+        <Box sx={wrapperSx(scrolled)}>
           <Stack alignItems="center" direction="row">
             <Box sx={{ flexGrow: 1 }}>
               <Link component={NextLink} href={LINKS.root} variant="h6">

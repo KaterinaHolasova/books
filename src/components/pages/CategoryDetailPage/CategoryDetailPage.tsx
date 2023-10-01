@@ -55,8 +55,8 @@ export function CategoryDetailPage(props: CategoryDetailPageProps) {
           </Button>
         )}
       </Header>
-      {data && <BookList data={data.filter((item) => item.category == category)} />}
       {isLoading && <BookListLoader />}
+      {data && <BookList data={data.filter((item) => item.category == category)} />}
     </>
   )
 }

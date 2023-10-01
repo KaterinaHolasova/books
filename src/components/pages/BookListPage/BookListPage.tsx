@@ -28,8 +28,8 @@ export default function BookListPage() {
           </Button>
         )}
       </Header>
-      {data && <BookList data={data} />}
       {isLoading && <BookListLoader />}
+      {data && <BookList data={data} />}
     </>
   )
 }

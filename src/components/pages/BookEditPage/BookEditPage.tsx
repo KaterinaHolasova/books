@@ -22,6 +22,7 @@ export function BookEditPage(props: BookEditPageProps) {
     <>
       <Header title="Edit book" />
       <AdminZoneAlert />
+      {isAdmin && isLoading && <Loader />}
       {isAdmin && data && (
         <BookForm
           defaultValues={{
@@ -35,7 +36,6 @@ export function BookEditPage(props: BookEditPageProps) {
           onSubmit={updateBook}
         />
       )}
-      {isAdmin && isLoading && <Loader />}
     </>
   )
 }

@@ -5,6 +5,6 @@ export const imageWrapperSx: SxProps<Theme> = (theme) => ({
   overflow: 'hidden',
   width: '100%',
   height: '100%',
-  boxShadow: theme.shadows[2],
+  boxShadow: theme.shadows[3],
   borderRadius: '8px',
 })

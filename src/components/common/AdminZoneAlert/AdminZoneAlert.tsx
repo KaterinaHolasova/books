@@ -8,8 +8,8 @@ export function AdminZoneAlert() {
   const { isAdmin, toggleIsAdmin } = useContext(AdminContext)
   const isTabletOrDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'))
 
-  return (
-    !isAdmin && (
+  if (!isAdmin) {
+    return (
       <Alert
         severity="warning"
         action={
@@ -31,5 +31,5 @@ export function AdminZoneAlert() {
         This is admin zone
       </Alert>
     )
-  )
+  }
 }

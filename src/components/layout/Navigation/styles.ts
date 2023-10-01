@@ -7,12 +7,12 @@ export const containerSx: SxProps<Theme> = () => ({
 })
 
 export const wrapperSx =
-  (trigger: boolean): SxProps<Theme> =>
+  (scrolled: boolean): SxProps<Theme> =>
   ({ transitions }) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     display: 'flex',
-    height: trigger ? { xs: height.xs - 8, sm: height.sm - 16, lg: height.lg - 16 } : height,
+    height: scrolled ? { xs: height.xs - 8, sm: height.sm - 16, lg: height.lg - 16 } : height,
     px: { xs: 2, sm: 3, lg: 4 },
     py: 1,
     transition: transitions.create('height'),
